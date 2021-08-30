@@ -135,7 +135,7 @@ local doom = {
 	-- false : Shows absolute number lines
 	-- true  : Shows relative number lines
 	-- @default = true
-	relative_num = true,
+	relative_num = false,
 
 	-- Enable Highlight on yank
 	-- false : disables highligh on yank
@@ -244,7 +244,7 @@ local doom = {
 
 	-- Default colorscheme
 	-- @default = doom-one
-	colorscheme = 'doom-one',
+	colorscheme = 'doom-gruvbox',
 
 	-- Background color
 	-- @default = dark
@@ -276,8 +276,8 @@ local doom = {
 	-- Set gui fonts here
 	-- @default = "FiraCode Nerd Font", @default font size = 15,
 	-- WARNING: Font sizes must be in string format!
-	guifont = 'FiraCode Nerd Font',
-	guifont_size = '15',
+	guifont = 'Hack Nerd Font',
+	guifont_size = '14',
 
 	-- change Which Key background color
 	-- can use hex, or normal color names (eg: Red, Gree, Blue)
@@ -312,7 +312,10 @@ local nvim = {
 	-- @default = {}
 	-- example:
 	--   { ['sonokai_style'] = 'andromeda' }
-	global_variables = {},
+	global_variables = {
+        ['bookmark_save_per_working_dir'] = 1,
+        ['bookmark_manage_per_buffer'] = 1,
+	},
 
 	-- Set custom autocommands
 	-- @default = {}
@@ -320,7 +323,11 @@ local nvim = {
 	--   augroup_name = {
 	--      { 'BufNewFile,BufRead', 'doomrc', 'set ft=lua'}
 	--   }
-	autocmds = {},
+	autocmds = {
+        solidity = {
+            { 'BufNewFile, BufRead', '*.sol', 'set ft=solidity'}
+        }
+	},
 
 	-- Set custom key bindings
 	-- @default = {}
@@ -333,7 +340,30 @@ local nvim = {
 	--     'n' is the map scope
 	--     'ca' is the map activator
 	--     ':Lspsaga ...' is the command to be executed
-	mappings = {},
+	mappings = {
+        {'n', '<leader>op', "<cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>"},
+        {'n', '<leader>cls', "<cmd>Lspsaga signature_help<CR>"},
+        {'n', 'gs', "<cmd>Lspsaga signature_help<CR>"},
+        {'n', '<leader>clp', "<cmd>Lspsaga preview_definition<CR>"},
+        {'n', 'gp', "<cmd>Lspsaga preview_definition<CR>"},
+        {'n', '<leader>clf','<cmd>lua vim.lsp.buf.formatting()<CR>'},
+        {'n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>'},
+        {'n', '<leader>ma', '<cmd>Telescope vim_bookmarks all<CR>'},
+        {'n', '<A-j>', "<cmd>m .+1<CR>=="},
+        -- It's <A-j> workaround
+        {'n', '∆', "<cmd>m .+1<CR>=="},
+        {'n', '<A-k>', "<cmd>m .-2<CR>=="},
+        -- It's <A-k> workaround
+        {'n', '˚', "<cmd>m .-2<CR>=="},
+        {'i', '<A-j>', "<Esc><cmd>m .+1<CR>==gi"},
+        {'i', '∆', "<Esc><cmd>m .+1<CR>==gi"},
+        {'i', '<A-k>', "<Esc><cmd>m .-2<CR>==gi"},
+        {'i', '˚', "<Esc><cmd>m .-2<CR>==gi"},
+        {'v', '<A-j>', "<cmd>m '>+1<CR>gv=gv"},
+        {'v', '∆', "<cmd>m '>+1<CR>gv=gv"},
+        {'v', '<A-k>', "<cmd>m '<-2<CR>gv=gv"},
+        {'v', '˚', "<cmd>m '<-2<CR>gv=gv"},
+	},
 
 	-- Set custom commands
 	-- @default = {}

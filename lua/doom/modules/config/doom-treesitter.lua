@@ -34,6 +34,9 @@ return function()
 		table.insert(doomrc.langs, 'norg')
 	end
 
+	vim.api.nvim_set_option("foldmethod", "expr")
+	vim.api.nvim_set_option("foldexpr", "nvim_treesitter#foldexpr()")
+
 	require('nvim-treesitter.configs').setup({
 		ensure_installed = get_ts_parsers(doomrc.langs),
 		highlight = { enable = true },

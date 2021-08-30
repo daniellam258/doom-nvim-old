@@ -12,4 +12,53 @@
 --     },
 -- }
 
-return {}
+return {
+    -- Projects Search
+    {
+        'nvim-telescope/telescope-project.nvim',
+        after = {'telescope.nvim'},
+        config = function()
+            require'telescope'.load_extension('project')
+        end,
+    },
+    -- Bookmarks
+    {
+        'MattesGroeger/vim-bookmarks'
+    },
+    {
+        'tom-anders/telescope-vim-bookmarks.nvim',
+        after = {'vim-bookmarks', 'telescope.nvim'},
+        config = function()
+            require'telescope'.load_extension('vim_bookmarks')
+        end,
+    },
+    -- Movements
+    {
+        'chaoren/vim-wordmotion',
+        'justinmk/vim-sneak',
+    },
+    -- Commenting
+    {
+        'tomtom/tcomment_vim',
+    },
+    -- Wrapping/Delimiters
+    {
+        'machakann/vim-sandwich',
+        {
+            'andymass/vim-matchup',
+            after = {'nvim-treesitter'},
+            config = function()
+                require('nvim-treesitter.configs').setup {
+                    matchup = {
+                        enable = true,
+                    }
+                }
+            end,
+        }
+    },
+    -- Solidity
+    {
+        'tomlion/vim-solidity',
+        ft = {'solidity'}
+    },
+}

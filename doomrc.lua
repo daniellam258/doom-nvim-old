@@ -14,12 +14,12 @@
 local doom = {
 	ui = {
 		'dashboard',      -- Start screen
-		-- 'doom-themes', -- Additional doom emacs' colorschemes
+		'doom-themes', -- Additional doom emacs' colorschemes
 		'statusline',     -- Statusline
 		'tabline',        -- Tabline, shows your buffers list at top
 		-- 'zen',         -- Distraction free environment
 		'which-key',      -- Keybindings popup menu like Emacs' guide-key
-		-- 'indentlines', -- Show indent lines
+		'indentlines', -- Show indent lines
 	},
 	doom = {
 		-- 'neorg',    -- Life Organization Tool
@@ -28,7 +28,7 @@ local doom = {
 	},
 	editor = {
 		'auto-session',    -- A small automated session manager for Neovim
-		-- 'terminal',     -- Terminal for Neovim (NOTE: needed for runner and compiler)
+		'terminal',     -- Terminal for Neovim (NOTE: needed for runner and compiler)
 		'explorer',        -- Tree explorer
 		'symbols',         -- LSP symbols and tags
 		-- 'minimap',      -- Code minimap, requires github.com/wfxr/code-minimap
@@ -47,10 +47,10 @@ local doom = {
 		-- at the end, e.g. 'rust +lsp'. This will install the rust TreeSitter
 		-- parser and rust-analyzer
 		--
-		-- 'html',        -- HTML support
-		-- 'css',         -- CSS support
-		-- 'javascript',  -- JavaScript support
-		-- 'typescript',  -- TypeScript support
+		'html',        -- HTML support
+		'css',         -- CSS support
+		'javascript',  -- JavaScript support
+		'typescript',  -- TypeScript support
 		-- 'bash',        -- The terminal gods language
 		-- 'python +lsp', -- Python support + lsp
 		-- 'ruby',        -- Look ma, I love the gems!
@@ -58,19 +58,19 @@ local doom = {
 		-- 'elixir',      -- Build scalable and maintainable software
 		-- 'haskell',     -- Because Functional programming is fun, isn't it?
 
-		-- 'rust +lsp',   -- Let's get rusty!
-		-- 'go',          -- Hello, gopher
+		'rust +lsp',   -- Let's get rusty!
+		'go +lsp',          -- Hello, gopher
 		-- 'cpp',         -- C++ support
 		-- 'java',        -- Java support
 
-		-- 'config',      -- Configuration files (JSON, YAML, TOML)
-		-- 'dockerfile',  -- Do you like containers, right?
+		'config',      -- Configuration files (JSON, YAML, TOML)
+		'dockerfile',  -- Do you like containers, right?
 	},
 	utilities = {
 		-- 'suda',            -- Write and read files without sudo permissions
-		-- 'lazygit',         -- LazyGit integration for Neovim, requires LazyGit
-		-- 'neogit',          -- Magit for Neovim
-		-- 'colorizer',       -- Fastets colorizer for Neovim
+		'lazygit',         -- LazyGit integration for Neovim, requires LazyGit
+		'neogit',          -- Magit for Neovim
+		'colorizer',       -- Fastets colorizer for Neovim
 		'range-highlight',    -- hightlights ranges you have entered in commandline
 	},
 }

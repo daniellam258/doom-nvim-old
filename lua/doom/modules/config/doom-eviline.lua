@@ -87,6 +87,32 @@ return function()
 		end
 	end
 	-- }}}
+	
+    local function file_readonly(readonly_icon)
+        if vim.bo.filetype == 'help' then
+            return ''
+        end
+        local icon = readonly_icon or ''
+        if vim.bo.readonly == true then
+            return " " .. icon .. " "
+        end
+        return ''
+    end
+	
+	function file_name_provider(modified_icon, readonly_icon)
+        local file = vim.fn.expand('%:p:.')
+        if vim.fn.empty(file) == 1 then return '' end
+        if string.len(file_readonly(readonly_icon)) ~= 0 then
+            return file .. file_readonly(readonly_icon)
+        end
+        local icon = modified_icon or ''
+        if vim.bo.modifiable then
+            if vim.bo.modified then
+                return file .. ' ' .. icon .. '  '
+            end
+        end
+        return file .. ' '
+    end
 
 	-- Left side
 	gls.left[1] = {
@@ -156,7 +182,7 @@ return function()
 	}
 	gls.left[5] = {
 		FileName = {
-			provider = 'FileName',
+			provider = file_name_provider,
 			condition = condition.buffer_not_empty and is_not_dashboard,
 			highlight = { get_color('fg'), get_color('bg'), 'bold' },
 			separator = ' ',

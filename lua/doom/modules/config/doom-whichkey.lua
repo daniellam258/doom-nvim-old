@@ -100,6 +100,9 @@ return function()
 				['d'] = { 'Show type definition' },
 				['l'] = { 'Show line diagnostics' },
 				['L'] = { 'Diagnostics into location list' },
+				['s'] = { 'Show signature' },
+				['f'] = { 'Format buffer' },
+				['p'] = { 'Show definition preview' },
 			},
 		},
 		['d'] = {
@@ -189,7 +192,12 @@ return function()
 			['m'] = { 'Minimap' },
 			['s'] = { 'Symbols' },
 			['t'] = { 'Terminal' },
+			['p'] = { 'Open projects' },
 		},
+		['m'] = {
+            name = '+bookmarks',
+            ['a'] = { 'Show all bookmarks' },
+		}
 	}
 
 	wk.register(mappings, { prefix = '<leader>' })
