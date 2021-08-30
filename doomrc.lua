@@ -20,6 +20,7 @@ local doom = {
 		-- 'zen',         -- Distraction free environment
 		'which-key',      -- Keybindings popup menu like Emacs' guide-key
 		'indentlines', -- Show indent lines
+    -- "show_registers",  -- popup that shows register contents
 	},
 	doom = {
 		-- 'neorg',    -- Life Organization Tool
@@ -28,18 +29,19 @@ local doom = {
 	},
 	editor = {
 		'auto-session',    -- A small automated session manager for Neovim
-		'terminal',     -- Terminal for Neovim (NOTE: needed for runner and compiler)
+		'terminal',         -- Terminal for Neovim (NOTE: needed for runner and compiler)
 		'explorer',        -- Tree explorer
+    -- "ranger",       -- Ranger File Browser, requires ranger file browser
 		'symbols',         -- LSP symbols and tags
 		-- 'minimap',      -- Code minimap, requires github.com/wfxr/code-minimap
 		'gitsigns',        -- Git signs
 		'telescope',       -- Highly extendable fuzzy finder over lists
-		-- 'restclient',   -- A fast Neovim http client
 		'formatter',       -- File formatting
 		'autopairs',       -- Autopairs
 		-- 'editorconfig', -- EditorConfig support for Neovim
 		'kommentary',      -- Comments plugin
 		'lsp',             -- Language Server Protocols
+    "dap",             -- Debug Adapter Protocol
 		'snippets',        -- LSP snippets
 	},
 	langs = {
@@ -73,6 +75,11 @@ local doom = {
 		'colorizer',       -- Fastets colorizer for Neovim
 		'range-highlight',    -- hightlights ranges you have entered in commandline
 	},
+  web = {
+    -- "restclient",      -- A fast Neovim http client
+    -- "firenvim",        -- requires firenvim web extension; change fontsize by increasing guifontsize in doom_config
+    -- "colorizer",       -- Fastest colorizer for Neovim
+  }
 }
 
 return doom

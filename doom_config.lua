@@ -382,12 +382,20 @@ local nvim = {
 	--      end
 	--   }
 	functions = {},
+
+  -- Set custom options
+  -- @default = {}
+  -- example:
+  --   {
+  --      { ['shiftwidth'] = 4 }
+  --   }
+  options = {},
 }
 -- }}}
 
 return {
-	doom = doom,
-	nvim = nvim,
+  doom = doom,
+  nvim = nvim,
 }
 
 -- vim: fdm=marker
