@@ -20,7 +20,7 @@ local doom = {
 		-- 'zen',         -- Distraction free environment
 		'which-key',      -- Keybindings popup menu like Emacs' guide-key
 		'indentlines', -- Show indent lines
-    -- "show_registers",  -- popup that shows register contents
+        -- "show_registers",  -- popup that shows register contents
 	},
 	doom = {
 		-- 'neorg',    -- Life Organization Tool
@@ -51,12 +51,12 @@ local doom = {
 		--
 		'html',        -- HTML support
 		'css',         -- CSS support
-		'javascript',  -- JavaScript support
-		'typescript',  -- TypeScript support
+		'javascript +lsp',  -- JavaScript support
+		'typescript +lsp',  -- TypeScript support
 		-- 'bash',        -- The terminal gods language
 		-- 'python +lsp', -- Python support + lsp
 		-- 'ruby',        -- Look ma, I love the gems!
-		'lua',            -- Support for our gods language
+		'lua +lsp',            -- Support for our gods language
 		-- 'elixir',      -- Build scalable and maintainable software
 		-- 'haskell',     -- Because Functional programming is fun, isn't it?
 
@@ -75,11 +75,11 @@ local doom = {
 		'colorizer',       -- Fastets colorizer for Neovim
 		'range-highlight',    -- hightlights ranges you have entered in commandline
 	},
-  web = {
-    -- "restclient",      -- A fast Neovim http client
-    -- "firenvim",        -- requires firenvim web extension; change fontsize by increasing guifontsize in doom_config
-    -- "colorizer",       -- Fastest colorizer for Neovim
-  }
+    web = {
+        -- "restclient",      -- A fast Neovim http client
+        -- "firenvim",        -- requires firenvim web extension; change fontsize by increasing guifontsize in doom_config
+        -- "colorizer",       -- Fastest colorizer for Neovim
+    }
 }
 
 return doom

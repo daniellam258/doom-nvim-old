@@ -33,13 +33,24 @@ return function()
       return true
     end
   end
+
+  local function get_file_readonly(readonly_icon)
+    if vim.bo.filetype == 'help' then
+        return ''
+    end
+    local icon = readonly_icon or 'ÓÇ¢'
+    if vim.bo.readonly == true then
+        return " " .. icon .. " "
+    end
+    return ''
+  end
   -- }}}
 
   function file_name_provider(modified_icon, readonly_icon)
     local file = vim.fn.expand('%:p:.')
     if vim.fn.empty(file) == 1 then return '' end
-    if string.len(file_readonly(readonly_icon)) ~= 0 then
-        return file .. file_readonly(readonly_icon)
+    if string.len(get_file_readonly(readonly_icon)) ~= 0 then
+        return file .. get_file_readonly(readonly_icon)
     end
     local icon = modified_icon or ''
     if vim.bo.modifiable then
@@ -116,7 +127,7 @@ return function()
   }
   gls.left[5] = {
     FileName = {
-      provider = file_name_provider,
+      provider = "FileName",
       condition = condition.buffer_not_empty and is_not_dashboard,
       highlight = { get_color("fg"), get_color("bg"), "bold" },
       separator = " ",

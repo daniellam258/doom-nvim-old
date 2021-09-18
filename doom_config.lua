@@ -174,7 +174,7 @@ local doom = {
 
 	-- Default indent size
 	-- @default = 4
-	indent = 4,
+	indent = 2,
 
 	-- Set max cols
 	-- Defines the column to show a vertical marker
@@ -244,7 +244,7 @@ local doom = {
 
 	-- Default colorscheme
 	-- @default = doom-one
-	colorscheme = 'doom-gruvbox',
+	colorscheme = 'doom-one',
 
 	-- Background color
 	-- @default = dark
@@ -326,6 +326,9 @@ local nvim = {
 	autocmds = {
         solidity = {
             { 'BufNewFile, BufRead', '*.sol', 'set ft=solidity'}
+        },
+        tabsize = {
+            { 'FileType', 'typescript,typescriptreact,javascript,javascriptreact,lua', 'set tabstop=2 shiftwidth=2 softtabstop=2'}
         }
 	},
 

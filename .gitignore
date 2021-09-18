@@ -7,3 +7,5 @@ tags
 # Backup files
 .doom_releases
 .doom_backup_hash
+# Vim bookmarks
+.vim-bookmarks
