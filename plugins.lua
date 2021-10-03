@@ -47,13 +47,13 @@ return {
         {
             'andymass/vim-matchup',
             after = {'nvim-treesitter'},
-            config = function()
-                require('nvim-treesitter.configs').setup {
-                    matchup = {
-                        enable = true,
-                    }
-                }
-            end,
+            -- config = function()
+            --     require('nvim-treesitter.configs').setup {
+            --         matchup = {
+            --             enable = true,
+            --         }
+            --     }
+            -- end,
         }
     },
     -- Solidity
@@ -61,4 +61,12 @@ return {
         'tomlion/vim-solidity',
         ft = {'solidity'}
     },
+    -- Markdown
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = {'markdown'},
+    run = function()
+      vim.fn['mkdp#util#install()']()
+    end,
+  }
 }

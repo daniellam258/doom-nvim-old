@@ -106,7 +106,7 @@ return function()
 				['i'] = { 'Lsp info' },
 				['d'] = { 'Show type definition' },
 				['l'] = { 'Show line diagnostics' },
-				['L'] = { 'Diagnostics into location list' },
+				['q'] = { 'Diagnostics into location list' },
 				['s'] = { 'Show signature' },
 				['f'] = { 'Format buffer' },
 				['p'] = { 'Show definition preview' },

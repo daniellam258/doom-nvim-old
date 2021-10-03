@@ -329,7 +329,13 @@ local nvim = {
         },
         tabsize = {
             { 'FileType', 'typescript,typescriptreact,javascript,javascriptreact,lua', 'set tabstop=2 shiftwidth=2 softtabstop=2'}
-        }
+        },
+		['no-auto-fold-when-launch'] = {
+			{'FileType', '*', 'set nofoldenable'}
+		},
+		['vim-sneak'] = {
+			{'FileType', '*', 'let g:sneak#label = 1'}
+		}
 	},
 
 	-- Set custom key bindings
@@ -362,10 +368,13 @@ local nvim = {
         {'i', '∆', "<Esc><cmd>m .+1<CR>==gi"},
         {'i', '<A-k>', "<Esc><cmd>m .-2<CR>==gi"},
         {'i', '˚', "<Esc><cmd>m .-2<CR>==gi"},
-        {'v', '<A-j>', "<cmd>m '>+1<CR>gv=gv"},
-        {'v', '∆', "<cmd>m '>+1<CR>gv=gv"},
-        {'v', '<A-k>', "<cmd>m '<-2<CR>gv=gv"},
-        {'v', '˚', "<cmd>m '<-2<CR>gv=gv"},
+        {'v', '<A-j>', ":'<,'>move'>+<CR>gv=gv"},
+        {'v', '∆', ":'<,'>move'>+<CR>gv=gv"},
+        {'v', '<A-k>', ":'<,'>move-2<CR>gv=gv"},
+        {'v', '˚', ":'<,'>move-2<CR>gv=gv"},
+
+		{'n', 't', '<Plug>Sneak_s'},
+		{'n', 'T', '<Plug>Sneak_S'},
 	},
 
 	-- Set custom commands

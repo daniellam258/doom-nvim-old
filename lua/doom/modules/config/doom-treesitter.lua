@@ -51,6 +51,9 @@ return function()
     autopairs = {
       enable = functions.is_plugin_disabled("autopairs") and false or true,
     },
+    matchup = {
+      enable = true,
+    },
     indent = { enable = true },
     tree_docs = { enable = true },
     context_commentstring = { enable = true },
