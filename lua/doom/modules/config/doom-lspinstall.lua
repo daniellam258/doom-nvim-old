@@ -1,16 +1,50 @@
 return function()
-    local nvim_lsp = require("lspconfig")
-    local lua_lsp = require("lua-dev").setup({
-        lspconfig = {
-            settings = {
-                Lua = {
-                    workspace = {
-                        preloadFileSize = 200,
-                    },
-                },
-            },
+  local log = require("doom.extras.logging")
+  local utils = require("doom.utils")
+  local nvim_lsp = require("lspconfig")
+  local lua_lsp = require("lua-dev").setup({
+    lspconfig = {
+      settings = {
+        Lua = {
+          workspace = {
+            preloadFileSize = 200,
+          },
         },
-    })
+      }
+    }
+  })
+
+  local lspinstall = require("lspinstall")
+  lspinstall.setup()
+
+  -- Load langs from doomrc and install servers with +lsp
+  local function install_servers()
+    local installed_servers = lspinstall.installed_servers()
+    local available_servers = lspinstall.available_servers()
+
+    local doomrc = require("doom.core.config.doomrc").load_doomrc()
+    local langs = doomrc.langs
+
+    for _, lang in ipairs(langs) do
+      local lang_str = lang
+      lang = lang:gsub("%s+%+lsp", ""):gsub("%s+%+debug", "")
+
+      -- If the +lsp flag exists and the language server is not installed yet
+      if lang_str:find("%+lsp") and (not utils.has_value(installed_servers, lang)) then
+        -- Try to install the server only if there is a server available for
+        -- the language, oterwise raise a warning
+        if utils.has_value(available_servers, lang) then
+          lspinstall.install_server(lang)
+        else
+          log.warn(
+            "The language " .. lang .. ' does not have a server, please remove the "+lsp" flag'
+          )
+        end
+      end
+    end
+  end
+
+  install_servers()
 
     -- https://github.com/kabouzeid/nvim-lspinstall#advanced-configuration-recommended
     local function setup_servers()
