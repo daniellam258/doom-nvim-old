@@ -306,6 +306,11 @@ local doom = {
 }
 -- }}}
 
+local mapping_opts = {
+	silent = true,
+	expr = true,
+}
+
 -- {{{ Nvim
 local nvim = {
 	-- Set custom Neovim global variables
@@ -342,39 +347,41 @@ local nvim = {
 	-- @default = {}
 	-- example:
 	--   {
-	--      {'n', 'ca', ':Lspsaga code_action<CR>'}
+	--      {'n', 'ca', ':Lspsaga code_action<CR>', options}
 	--   }
 	--
 	--   where
 	--     'n' is the map scope
 	--     'ca' is the map activator
 	--     ':Lspsaga ...' is the command to be executed
+	--     options is a Lua table containing the mapping options, e.g.
+	--     { silent = true }, see ':h map-arguments'.
 	mappings = {
-        {'n', '<leader>op', "<cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>"},
-        {'n', '<leader>cls', "<cmd>Lspsaga signature_help<CR>"},
-        {'n', 'gs', "<cmd>Lspsaga signature_help<CR>"},
-        {'n', '<leader>clp', "<cmd>Lspsaga preview_definition<CR>"},
-        {'n', 'gp', "<cmd>Lspsaga preview_definition<CR>"},
-        {'n', '<leader>clf','<cmd>lua vim.lsp.buf.formatting()<CR>'},
-        {'n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>'},
-        {'n', '<leader>ma', '<cmd>Telescope vim_bookmarks all<CR>'},
-        {'n', '<A-j>', "<cmd>m .+1<CR>=="},
+        {'n', '<leader>op', ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", mapping_opts},
+        {'n', '<leader>cls', ":Lspsaga signature_help<CR>", mapping_opts},
+        {'n', 'gs', ":Lspsaga signature_help<CR>", mapping_opts},
+        {'n', '<leader>clp', ":Lspsaga preview_definition<CR>", mapping_opts},
+        {'n', 'gp', ":Lspsaga preview_definition<CR>", mapping_opts},
+        {'n', '<leader>clf',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
+        {'n', 'ff',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
+        {'n', 'ma', ':Telescope vim_bookmarks all<CR>', mapping_opts},
+        {'n', '<A-j>', ":m .+1<CR>==", mapping_opts},
         -- It's <A-j> workaround
-        {'n', '∆', "<cmd>m .+1<CR>=="},
-        {'n', '<A-k>', "<cmd>m .-2<CR>=="},
-        -- It's <A-k> workaround
-        {'n', '˚', "<cmd>m .-2<CR>=="},
-        {'i', '<A-j>', "<Esc><cmd>m .+1<CR>==gi"},
-        {'i', '∆', "<Esc><cmd>m .+1<CR>==gi"},
-        {'i', '<A-k>', "<Esc><cmd>m .-2<CR>==gi"},
-        {'i', '˚', "<Esc><cmd>m .-2<CR>==gi"},
-        {'v', '<A-j>', ":'<,'>move'>+<CR>gv=gv"},
-        {'v', '∆', ":'<,'>move'>+<CR>gv=gv"},
-        {'v', '<A-k>', ":'<,'>move-2<CR>gv=gv"},
-        {'v', '˚', ":'<,'>move-2<CR>gv=gv"},
+        {'n', '∆', ":m .+1<CR>==", mapping_opts},
+        {'n', '<A-k>', ":m .-2<CR>==", mapping_opts},
+        -- It's <A-k> workaround	
+        {'n', '˚', ":m .-2<CR>==", mapping_opts},
+        {'i', '<A-j>', "<Esc>:m .+1<CR>==gi", mapping_opts},
+        {'i', '∆', "<Esc>:m .+1<CR>==gi", mapping_opts},
+        {'i', '<A-k>', "<Esc>:m .-2<CR>==gi", mapping_opts},
+        {'i', '˚', "<Esc>:m .-2<CR>==gi", mapping_opts},
+        {'v', '<A-j>', ":'<,'>move'>+<CR>gv=gv", mapping_opts},
+        {'v', '∆', ":'<,'>move'>+<CR>gv=gv", mapping_opts},
+        {'v', '<A-k>', ":'<,'>move-2<CR>gv=gv", mapping_opts},
+        {'v', '˚', ":'<,'>move-2<CR>gv=gv", mapping_opts},
 
-		{'n', 't', '<Plug>Sneak_s'},
-		{'n', 'T', '<Plug>Sneak_S'},
+		{'n', 't', '<Plug>Sneak_s', mapping_opts},
+		{'n', 'T', '<Plug>Sneak_S', mapping_opts},
 	},
 
 	-- Set custom commands

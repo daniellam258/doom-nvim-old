@@ -56,7 +56,7 @@ return function()
       show_tab_indicators = true,
       persist_buffer_sort = true,
       separator_style = "thick",
-      enforce_regular_tabs = true,
+      enforce_regular_tabs = false,
       always_show_bufferline = false,
       sort_by = "directory",
       custom_areas = {

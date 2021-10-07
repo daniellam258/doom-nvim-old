@@ -1129,3 +1129,9 @@ utils.map("n", "<leader>m", "<cmd>w<cr>", opts, "Save", "save_right", "Save m")
 
 -- man pages
 utils.map("n", "<leader>h", ":Man ", { silent = false }, "Man page", "man_page", "Man page")
+
+-- custom mapping
+utils.map("n", "<leader>op", ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", opts, "Project", "open_projects", "Open projects")
+utils.map("n", "<leader>cls", ":Lspsaga signature_help<CR>", opts, "Lsp", "lsp_signature", "Lsp signature help")
+utils.map("n", "gs", "<leader>cls", opts)
+
