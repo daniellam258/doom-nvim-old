@@ -47,7 +47,7 @@ return function()
   -- }}}
 
   function file_name_provider(modified_icon, readonly_icon)
-    local file = vim.fn.expand('%:p:.')
+    local file = vim.fn.expand('%:.')
     if vim.fn.empty(file) == 1 then return '' end
     if string.len(get_file_readonly(readonly_icon)) ~= 0 then
         return file .. get_file_readonly(readonly_icon)
@@ -127,7 +127,7 @@ return function()
   }
   gls.left[5] = {
     FileName = {
-      provider = "FileName",
+      provider = file_name_provider,
       condition = condition.buffer_not_empty and is_not_dashboard,
       highlight = { get_color("fg"), get_color("bg"), "bold" },
       separator = " ",
