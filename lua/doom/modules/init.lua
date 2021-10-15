@@ -250,7 +250,7 @@ packer.startup(function(use)
     config = require("doom.modules.config.doom-telescope"),
     disable = disabled_telescope,
   })
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', disable = disabled_telescope }
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", disable = disabled_telescope })
   use({
     "lazytanuki/nvim-mapper",
     config = function()

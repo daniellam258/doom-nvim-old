@@ -25,8 +25,8 @@ return function()
     return langs
   end
 
-	vim.api.nvim_set_option("foldmethod", "expr")
-	vim.api.nvim_set_option("foldexpr", "nvim_treesitter#foldexpr()")
+  vim.api.nvim_set_option("foldmethod", "expr")
+  vim.api.nvim_set_option("foldexpr", "nvim_treesitter#foldexpr()")
 
   -- Set up treesitter for Neorg
   local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()

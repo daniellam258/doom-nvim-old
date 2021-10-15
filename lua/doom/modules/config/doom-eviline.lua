@@ -35,30 +35,32 @@ return function()
   end
 
   local function get_file_readonly(readonly_icon)
-    if vim.bo.filetype == 'help' then
-        return ''
+    if vim.bo.filetype == "help" then
+      return ""
     end
-    local icon = readonly_icon or 'ÓÇ¢'
+    local icon = readonly_icon or "ÓÇ¢"
     if vim.bo.readonly == true then
-        return " " .. icon .. " "
+      return " " .. icon .. " "
     end
-    return ''
+    return ""
   end
   -- }}}
 
   function file_name_provider(modified_icon, readonly_icon)
-    local file = vim.fn.expand('%:.')
-    if vim.fn.empty(file) == 1 then return '' end
+    local file = vim.fn.expand("%:.")
+    if vim.fn.empty(file) == 1 then
+      return ""
+    end
     if string.len(get_file_readonly(readonly_icon)) ~= 0 then
-        return file .. get_file_readonly(readonly_icon)
+      return file .. get_file_readonly(readonly_icon)
     end
-    local icon = modified_icon or ''
+    local icon = modified_icon or ""
     if vim.bo.modifiable then
-        if vim.bo.modified then
-            return file .. ' ' .. icon .. '  '
-        end
+      if vim.bo.modified then
+        return file .. " " .. icon .. "  "
+      end
     end
-    return file .. ' '
+    return file .. " "
   end
 
   -- Left side
