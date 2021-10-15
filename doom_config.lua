@@ -244,7 +244,7 @@ local doom = {
 
 	-- Default colorscheme
 	-- @default = doom-one
-	colorscheme = 'doom-one',
+	colorscheme = 'doom-gruvbox',
 
 	-- Background color
 	-- @default = dark
