@@ -50,7 +50,7 @@ thus reach a solution more quickly.
 Some important data would be:
 
 - Your custom configuration if you have one
-  (`doomrc.lua`, `doom_config.lua` and `plugins.lua`)
+  (`doom_modules.lua`, `doom_config.lua` and `doom_userplugins.lua`)
 - Which branch of Doom Nvim are you using
 - Which plugins are you using
 
@@ -73,8 +73,8 @@ Doom Nvim follows some code style rules like ones the mentioned below:
 
 - Double quotes over single quotes.
 - Spaces over tabs.
-- Two spaces indentation
-- Variable names in `snake_case`
+- Two spaces indentation.
+- Variable names in `snake_case`.
 - Function names in `snake_case`.
 - [stylua] is used to format lua files with the following configuration:
 

@@ -9,3 +9,6 @@ tags
 .doom_backup_hash
 # Vim bookmarks
 .vim-bookmarks
+# editor artifacts
+*~
+*.swp

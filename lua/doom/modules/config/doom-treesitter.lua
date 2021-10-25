@@ -1,7 +1,7 @@
 return function()
   local has_value = require("doom.utils").has_value
-  local doomrc = require("doom.core.config.doomrc").load_doomrc()
-  local functions = require("doom.core.functions")
+  local modules = require("doom.core.config.modules").modules
+  local is_plugin_disabled = require("doom.utils").is_plugin_disabled
 
   local function get_ts_parsers(languages)
     local langs = {}
@@ -13,7 +13,7 @@ return function()
         table.insert(langs, "yaml")
         table.insert(langs, "toml")
       else
-        lang = lang:gsub("%s+%+lsp", ""):gsub("%s+%+debug", "")
+        lang = lang:gsub("%s+%+lsp(%(%a+%))", ""):gsub("%s+%+lsp", ""):gsub("%s+%+debug", "")
         table.insert(langs, lang)
       end
     end
@@ -37,24 +37,36 @@ return function()
       branch = "main",
     },
   }
-  -- selene: allow(undefined_variable)
   if packer_plugins and packer_plugins["neorg"] then
-    table.insert(doomrc.langs, "norg")
+    table.insert(modules.langs, "norg")
+  end
+
+  -- Set up treesitter for HTTP
+  parser_configs.http = {
+    install_info = {
+      url = "https://github.com/NTBBloodbath/tree-sitter-http",
+      files = { "src/parser.c" },
+      branch = "main",
+    },
+  }
+  if packer_plugins and packer_plugins["rest.nvim"] then
+    table.insert(modules.langs, "http")
   end
 
   -- macos uses wrong c version
   require("nvim-treesitter.install").compilers = { "gcc" }
 
   require("nvim-treesitter.configs").setup({
-    ensure_installed = get_ts_parsers(doomrc.langs),
+    ensure_installed = get_ts_parsers(modules.langs),
     highlight = { enable = true },
     autopairs = {
-      enable = functions.is_plugin_disabled("autopairs") and false or true,
+      enable = is_plugin_disabled("autopairs") and false or true,
     },
     matchup = {
       enable = true,
     },
     indent = { enable = true },
+    playground = { enable = true },
     tree_docs = { enable = true },
     context_commentstring = { enable = true },
     autotag = {
