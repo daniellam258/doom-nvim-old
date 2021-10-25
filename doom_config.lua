@@ -276,8 +276,8 @@ local doom = {
 	-- Set gui fonts here
 	-- @default = "FiraCode Nerd Font", @default font size = 15,
 	-- WARNING: Font sizes must be in string format!
-	guifont = 'Hack Nerd Font',
-	guifont_size = '14',
+	guifont = 'Hack NF',
+	guifont_size = '11',
 
 	-- change Which Key background color
 	-- can use hex, or normal color names (eg: Red, Gree, Blue)
@@ -363,24 +363,9 @@ local nvim = {
         {'n', '<leader>clp', ":Lspsaga preview_definition<CR>", mapping_opts},
         {'n', 'gp', ":Lspsaga preview_definition<CR>", mapping_opts},
         {'n', '<leader>clf',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
-        {'n', 'ff',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
+        {'n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>', mapping_opts},
         {'n', 'ma', ':Telescope vim_bookmarks all<CR>', mapping_opts},
-        {'n', '<A-j>', ":m .+1<CR>==", mapping_opts},
-        -- It's <A-j> workaround
-        {'n', '∆', ":m .+1<CR>==", mapping_opts},
-        {'n', '<A-k>', ":m .-2<CR>==", mapping_opts},
-        -- It's <A-k> workaround	
-        {'n', '˚', ":m .-2<CR>==", mapping_opts},
-        {'i', '<A-j>', "<Esc>:m .+1<CR>==gi", mapping_opts},
-        {'i', '∆', "<Esc>:m .+1<CR>==gi", mapping_opts},
-        {'i', '<A-k>', "<Esc>:m .-2<CR>==gi", mapping_opts},
-        {'i', '˚', "<Esc>:m .-2<CR>==gi", mapping_opts},
-        {'v', '<A-j>', ":'<,'>move'>+<CR>gv=gv", mapping_opts},
-        {'v', '∆', ":'<,'>move'>+<CR>gv=gv", mapping_opts},
-        {'v', '<A-k>', ":'<,'>move-2<CR>gv=gv", mapping_opts},
-        {'v', '˚', ":'<,'>move-2<CR>gv=gv", mapping_opts},
-
-		{'n', 't', '<Plug>Sneak_s', mapping_opts},
+       		{'n', 't', '<Plug>Sneak_s', mapping_opts},
 		{'n', 'T', '<Plug>Sneak_S', mapping_opts},
 	},
 
