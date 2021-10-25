@@ -1131,8 +1131,24 @@ utils.map("n", "<leader>m", "<cmd>w<cr>", opts, "Save", "save_right", "Save m")
 utils.map("n", "<leader>h", ":Man ", { silent = false }, "Man page", "man_page", "Man page")
 
 -- custom mapping
-utils.map("n", "<leader>op", ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", opts, "Project", "open_projects", "Open projects")
-utils.map("n", "<leader>cls", ":Lspsaga signature_help<CR>", opts, "Lsp", "lsp_signature", "Lsp signature help")
+utils.map(
+  "n",
+  "<leader>op",
+  ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>",
+  opts,
+  "Project",
+  "open_projects",
+  "Open projects"
+)
+utils.map(
+  "n",
+  "<leader>cls",
+  ":Lspsaga signature_help<CR>",
+  opts,
+  "Lsp",
+  "lsp_signature",
+  "Lsp signature help"
+)
 utils.map("n", "gs", "<leader>cls", opts, "Lsp", "lsp_signature_2", "Lsp signature help")
 utils.map('n', '<leader>clp', ":Lspsaga preview_definition<CR>", opts, "Lsp", "lsp_preview_definition", "Lsp preview definition")
 utils.map('n', 'gp', ":Lspsaga preview_definition<CR>", opts, "Lsp", "lsp_preview_definition_1", "Lsp preview definition")

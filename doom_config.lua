@@ -307,8 +307,8 @@ local doom = {
 -- }}}
 
 local mapping_opts = {
-	silent = true,
-	expr = true,
+  silent = true,
+  expr = true,
 }
 
 -- {{{ Nvim

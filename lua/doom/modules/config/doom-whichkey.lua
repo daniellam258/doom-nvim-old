@@ -64,10 +64,10 @@ return function()
     triggers = "auto", -- automatically setup triggers
   })
 
-	----- Whichkey binds ------------------------
-	---------------------------------------------
-	local mappings = {
-		["`"] = { "Find file" },
+  ----- Whichkey binds ------------------------
+  ---------------------------------------------
+  local mappings = {
+    ["`"] = { "Find file" },
     ["."] = { "Browse files" },
     [","] = { "Switch buffer" },
     ["/"] = { "Search a word" },
@@ -75,8 +75,8 @@ return function()
     ["h"] = { "Manpage" },
     ["m"] = { "Save" },
     ["v"] = { "Save" },
-		['b'] = {
-			name = "+buffers",
+    ["b"] = {
+      name = "+buffers",
       ["c"] = { "Close current buffer" },
       ["f"] = { "Format buffer" },
       ["b"] = { "Switch to other buffer" },
@@ -85,35 +85,35 @@ return function()
       ["g"] = { "Goto buffer" },
       ["["] = { "Previous buffer" },
       ["p"] = { "Previous buffer" },
-		},
-		['c'] = {
-			name = '+code',
-			i = { 'Start a REPL' },
-			r = { 'Run current file' },
-			b = { 'Compile project' },
-			c = { 'Compile and run project' },
-			['h'] = {
-				'Run restclient on the line that the cursor is currently on',
-			},
+    },
+    ["c"] = {
+      name = "+code",
+      i = { "Start a REPL" },
+      r = { "Run current file" },
+      b = { "Compile project" },
+      c = { "Compile and run project" },
+      ["h"] = {
+        "Run restclient on the line that the cursor is currently on",
+      },
       ["d"] = {
         name = "+debug",
         ["e"] = { "Evaluate word under cursor" },
         ["s"] = { "Evaluate selection" },
       },
-			['l'] = {
-				name = '+lsp',
-				['a'] = { 'Code actions' },
-				['i'] = { 'Lsp info' },
-				['d'] = { 'Show type definition' },
-				['l'] = { 'Show line diagnostics' },
-				['q'] = { 'Diagnostics into location list' },
-				['s'] = { 'Show signature' },
-				['f'] = { 'Format buffer' },
-				['p'] = { 'Show definition preview' },
-			},
-		},
-		['d'] = {
-			name = "+doom",
+      ["l"] = {
+        name = "+lsp",
+        ["a"] = { "Code actions" },
+        ["i"] = { "Lsp info" },
+        ["d"] = { "Show type definition" },
+        ["l"] = { "Show line diagnostics" },
+        ["q"] = { "Diagnostics into location list" },
+        ["s"] = { "Show signature" },
+        ["f"] = { "Format buffer" },
+        ["p"] = { "Show definition preview" },
+      },
+    },
+    ["d"] = {
+      name = "+doom",
       ["b"] = { "Show Doom keybindings" },
       ["c"] = { "Edit your Doom Nvim configuration" },
       ["d"] = { "Open Doom Nvim documentation" },
@@ -122,18 +122,18 @@ return function()
       ["R"] = { "Create crash report" },
       ["s"] = { "Change colorscheme" },
       ["l"] = { "Reload user custom settings" },
-		},
-		['f'] = {
-			name = '+file',
-			['c'] = { 'Edit Neovim configuration' },
-			['n'] = { 'Create a new unnamed buffer' },
-			['f'] = { 'Find files' },
-			['t'] = { 'Help tags' },
-			['r'] = { 'Recently opened files' },
-			['w'] = { 'Write file with sudo permissions' },
-			['R'] = { 'Re-open file with sudo permissions' },
-		},
-		["g"] = {
+    },
+    ["f"] = {
+      name = "+file",
+      ["c"] = { "Edit Neovim configuration" },
+      ["n"] = { "Create a new unnamed buffer" },
+      ["f"] = { "Find files" },
+      ["t"] = { "Help tags" },
+      ["r"] = { "Recently opened files" },
+      ["w"] = { "Write file with sudo permissions" },
+      ["R"] = { "Re-open file with sudo permissions" },
+    },
+    ["g"] = {
       name = "+git",
       ["o"] = { "Open LazyGit" },
       ["l"] = { "Pull" },
@@ -148,7 +148,7 @@ return function()
       ["B"] = { "Branches" },
       ["c"] = { "Commits" },
     },
-		["p"] = {
+    ["p"] = {
       name = "+plugins",
       ["c"] = { "Clean disabled or unused plugins" },
       ["C"] = { "Compile your plugins changes" },
@@ -157,7 +157,7 @@ return function()
       ["s"] = { "Sync your plugins" },
       ["S"] = { "Plugins status" },
     },
-		["q"] = {
+    ["q"] = {
       name = "+quit/sessions",
       ["q"] = { "Quit" },
       ["w"] = { "Save and quit" },
@@ -171,7 +171,7 @@ return function()
       ["h"] = { "Command history" },
       ["m"] = { "Jump to mark" },
     },
-		["w"] = {
+    ["w"] = {
       name = "+windows",
       ["w"] = { "Other window" },
       ["d"] = { "Delete window" },
@@ -190,7 +190,7 @@ return function()
       ["s"] = { "Split window below" },
       ["v"] = { "Split window right" },
     },
-		['o'] = {
+    ["o"] = {
       name = "+open",
       ["b"] = { "Debugging UI " },
       ["d"] = { "Start screen" },
@@ -198,8 +198,8 @@ return function()
       ["r"] = { "Ranger File Browser" },
       ["m"] = { "Minimap" },
       ["s"] = { "Symbols" },
-			['p'] = { 'Open projects' },
-		},
+      ["p"] = { "Open projects" },
+    },
     ["j"] = {
       name = "+jumps",
       ["a"] = { "Alternate file" },
@@ -208,11 +208,11 @@ return function()
       ["p"] = { "pop tag stack" },
       ["t"] = { "jump to tag" },
     },
-		['m'] = {
-            name = '+bookmarks',
-            ['a'] = { 'Show all bookmarks' },
-		}
-	}
+    ["m"] = {
+      name = "+bookmarks",
+      ["a"] = { "Show all bookmarks" },
+    },
+  }
 
   wk.register(mappings, { prefix = "<leader>" })
 end
