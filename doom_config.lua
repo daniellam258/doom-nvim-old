@@ -220,6 +220,8 @@ M.config = {
       leader = true,
       -- Completion and snippets keybindings
       completion = true,
+      -- Dpryde custom
+      custom = true
     },
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
@@ -310,7 +312,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "doom-one",
+    colorscheme = "doom-palenight",
 
     -- Background color
     -- @default = dark
@@ -342,10 +344,10 @@ M.config = {
     -- Set gui fonts here
     -- @default = "FiraCode Nerd Font", @default font size = 15,
     -- WARNING: Font sizes must be in string format!
-    guifont = "FiraCode NF",
+    guifont = "Hack NF",
     guifont_size = "11",
 
-    -- Change Which Key background color
+    -- Change Which Key baHack NFcolor
     -- can use hex, or normal color names (eg: Red, Gree, Blue)
     -- @default = #202328
     whichkey_bg = "#202328",
@@ -442,14 +444,6 @@ M.config = {
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
     mappings = {
-      {'n', '<leader>op', ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", mapping_opts},
-      {'n', '<leader>cls', ":Lspsaga signature_help<CR>", mapping_opts},
-      {'n', 'gs', ":Lspsaga signature_help<CR>", mapping_opts},
-      {'n', '<leader>clp', ":Lspsaga preview_definition<CR>", mapping_opts},
-      {'n', 'gp', ":Lspsaga preview_definition<CR>", mapping_opts},
-      {'n', '<leader>clf',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
-      {'n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>', mapping_opts},
-      {'n', 'ma', ':Telescope vim_bookmarks all<CR>', mapping_opts},
       {'n', 't', '<Plug>Sneak_s', mapping_opts},
 		  {'n', 'T', '<Plug>Sneak_S', mapping_opts},
     },
