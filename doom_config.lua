@@ -403,8 +403,8 @@ M.config = {
     --   See https://github.com/neovim/neovim/issues/2865
     --
     global_variables = {
-      ['bookmark_save_per_working_dir'] = 1,
-      ['bookmark_manage_per_buffer'] = 1,
+      ["bookmark_save_per_working_dir"] = 1,
+      ["bookmark_manage_per_buffer"] = 1,
     },
 
     -- Set custom autocommands
@@ -415,17 +415,21 @@ M.config = {
     --   }
     autocmds = {
       solidity = {
-        { 'BufNewFile, BufRead', '*.sol', 'set ft=solidity'}
+        { "BufNewFile, BufRead", "*.sol", "set ft=solidity" },
       },
       tabsize = {
-          { 'FileType', 'typescript,typescriptreact,javascript,javascriptreact,lua', 'set tabstop=2 shiftwidth=2 softtabstop=2'}
+        {
+          "FileType",
+          "typescript,typescriptreact,javascript,javascriptreact,lua",
+          "set tabstop=2 shiftwidth=2 softtabstop=2",
+        },
       },
-      ['no-auto-fold-when-launch'] = {
-        {'FileType', '*', 'set nofoldenable'}
+      ["no-auto-fold-when-launch"] = {
+        { "FileType", "*", "set nofoldenable" },
       },
-      ['vim-sneak'] = {
-        {'FileType', '*', 'let g:sneak#label = 1'}
-      }
+      ["vim-sneak"] = {
+        { "FileType", "*", "let g:sneak#label = 1" },
+      },
     },
 
     -- Set custom key bindings
@@ -442,16 +446,21 @@ M.config = {
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
     mappings = {
-      {'n', '<leader>op', ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", mapping_opts},
-      {'n', '<leader>cls', ":Lspsaga signature_help<CR>", mapping_opts},
-      {'n', 'gs', ":Lspsaga signature_help<CR>", mapping_opts},
-      {'n', '<leader>clp', ":Lspsaga preview_definition<CR>", mapping_opts},
-      {'n', 'gp', ":Lspsaga preview_definition<CR>", mapping_opts},
-      {'n', '<leader>clf',':lua vim.lsp.buf.formatting()<CR>', mapping_opts},
-      {'n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>', mapping_opts},
-      {'n', 'ma', ':Telescope vim_bookmarks all<CR>', mapping_opts},
-      {'n', 't', '<Plug>Sneak_s', mapping_opts},
-		  {'n', 'T', '<Plug>Sneak_S', mapping_opts},
+      {
+        "n",
+        "<leader>op",
+        ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>",
+        mapping_opts,
+      },
+      { "n", "<leader>cls", ":Lspsaga signature_help<CR>", mapping_opts },
+      { "n", "gs", ":Lspsaga signature_help<CR>", mapping_opts },
+      { "n", "<leader>clp", ":Lspsaga preview_definition<CR>", mapping_opts },
+      { "n", "gp", ":Lspsaga preview_definition<CR>", mapping_opts },
+      { "n", "<leader>clf", ":lua vim.lsp.buf.formatting()<CR>", mapping_opts },
+      { "n", "ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", mapping_opts },
+      { "n", "ma", ":Telescope vim_bookmarks all<CR>", mapping_opts },
+      { "n", "t", "<Plug>Sneak_s", mapping_opts },
+      { "n", "T", "<Plug>Sneak_S", mapping_opts },
     },
 
     -- Set custom commands

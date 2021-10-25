@@ -23,8 +23,48 @@ mappings.map(
   "Lsp signature help"
 )
 mappings.map("n", "gs", "<leader>cls", opts, "Lsp", "lsp_signature_2", "Lsp signature help")
-mappings.map('n', '<leader>clp', ":Lspsaga preview_definition<CR>", opts, "Lsp", "lsp_preview_definition", "Lsp preview definition")
-mappings.map('n', 'gp', ":Lspsaga preview_definition<CR>", opts, "Lsp", "lsp_preview_definition_1", "Lsp preview definition")
-mappings.map('n', '<leader>clf',':lua vim.lsp.buf.formatting()<CR>', opts, "Lsp", "lsp_format", "Lsp format")
-mappings.map('n', 'ff','<cmd>lua vim.lsp.buf.formatting()<CR>', opts, "Lsp", "lsp_format_1", "Lsp format")
-mappings.map('n', 'ma', ':Telescope vim_bookmarks all<CR>', opts, "Bookmarks", "bookmarks", "Bookmarks")
+mappings.map(
+  "n",
+  "<leader>clp",
+  ":Lspsaga preview_definition<CR>",
+  opts,
+  "Lsp",
+  "lsp_preview_definition",
+  "Lsp preview definition"
+)
+mappings.map(
+  "n",
+  "gp",
+  ":Lspsaga preview_definition<CR>",
+  opts,
+  "Lsp",
+  "lsp_preview_definition_1",
+  "Lsp preview definition"
+)
+mappings.map(
+  "n",
+  "<leader>clf",
+  ":lua vim.lsp.buf.formatting()<CR>",
+  opts,
+  "Lsp",
+  "lsp_format",
+  "Lsp format"
+)
+mappings.map(
+  "n",
+  "ff",
+  "<cmd>lua vim.lsp.buf.formatting()<CR>",
+  opts,
+  "Lsp",
+  "lsp_format_1",
+  "Lsp format"
+)
+mappings.map(
+  "n",
+  "ma",
+  ":Telescope vim_bookmarks all<CR>",
+  opts,
+  "Bookmarks",
+  "bookmarks",
+  "Bookmarks"
+)
