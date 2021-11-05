@@ -405,8 +405,8 @@ M.config = {
     --   See https://github.com/neovim/neovim/issues/2865
     --
     global_variables = {
-      ['bookmark_save_per_working_dir'] = 1,
-      ['bookmark_manage_per_buffer'] = 1,
+      ["bookmark_save_per_working_dir"] = 1,
+      ["bookmark_manage_per_buffer"] = 1,
     },
 
     -- Set custom autocommands
@@ -417,17 +417,21 @@ M.config = {
     --   }
     autocmds = {
       solidity = {
-        { 'BufNewFile, BufRead', '*.sol', 'set ft=solidity'}
+        { "BufNewFile, BufRead", "*.sol", "set ft=solidity" },
       },
       tabsize = {
-          { 'FileType', 'typescript,typescriptreact,javascript,javascriptreact,lua', 'set tabstop=2 shiftwidth=2 softtabstop=2'}
+        {
+          "FileType",
+          "typescript,typescriptreact,javascript,javascriptreact,lua",
+          "set tabstop=2 shiftwidth=2 softtabstop=2",
+        },
       },
-      ['no-auto-fold-when-launch'] = {
-        {'FileType', '*', 'set nofoldenable'}
+      ["no-auto-fold-when-launch"] = {
+        { "FileType", "*", "set nofoldenable" },
       },
-      ['vim-sneak'] = {
-        {'FileType', '*', 'let g:sneak#label = 1'}
-      }
+      ["vim-sneak"] = {
+        { "FileType", "*", "let g:sneak#label = 1" },
+      },
     },
 
     -- Set custom key bindings
