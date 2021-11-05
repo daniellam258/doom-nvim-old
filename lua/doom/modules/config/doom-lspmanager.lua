@@ -24,6 +24,7 @@ return function()
     elixir = { "elixirls" },
     haskell = { "hls" },
     vue = { "vuels" },
+    config = { "jsonls" },
   }
 
   -- Snippets support
@@ -59,66 +60,65 @@ return function()
   -- Load langs from doom_modules and install servers with +lsp flag
   local function install_servers()
     local installed_servers = lspmanager.installed_servers()
-    local available_servers = lspmanager.available_servers()
+    -- Flatten the array of default servers.  Default servers will be automatically uninstalled if no +lsp flag is provided.
+    local default_servers = {}
+    for _, lang_servers in pairs(servers) do
+      for _, lsp_name in ipairs(lang_servers) do
+        table.insert(default_servers, lsp_name)
+      end
+    end
 
     local modules = require("doom.core.config.modules").modules
     local langs = modules.langs
 
+    -- Find all LSPs that need to be installed
+    local ensure_installed = {}
     for _, lang in ipairs(langs) do
-      local lang_str = lang
-      lang = lang:gsub("%s+%+lsp(%(%a+%))", ""):gsub("%s+%+lsp", ""):gsub("%s+%+debug", "")
-      if utils.has_key(servers, lang) then
-        local lsp_name = servers[lang][1]
+      -- Lang name used for key in servers table
+      local lang_name = lang
+        :gsub("%s+%+lsp(%(%a+%))", "")
+        :gsub("%s+%+lsp", "")
+        :gsub("%s+%+debug", "")
+      -- Get LSP override +lsp(<override>) if it exists
+      local lsp_override = lang:match("+lsp%((.+)%)")
+      -- Array of lsps to ensure are installed
+      local lang_lsps = lsp_override ~= nil and vim.split(lsp_override, ",")
+        or servers[lang_name] ~= nil and servers[lang_name]
+        or nil
 
-        -- Allow overriding of LSP using `+lsp(OVERRIDE_LSP_NAME)` syntax
-        local lsp_override = lang_str:match("+lsp%((%a+)%)")
-        if lsp_override ~= nil then
-          lsp_name = lsp_override
+      local should_install_lsp = lang:find("+lsp")
 
-          -- Uninstall the default LSP to avoid conflicts
-          if utils.has_value(installed_servers, lsp_name) then
-            log.warn(
-              "Uninstalling "
-                .. lang
-                .. " ("
-                .. lsp_name
-                .. ") "
-                .. " LSP due to "
-                .. lsp_override
-                .. " LSP being supplied in config.  If you want to revert back to "
-                .. lsp_name
-                .. " LSP you will have to manually uninstall "
-                .. lsp_override
-                .. "."
-            )
-            lspmanager.uninstall_server(lsp_name)
-          end
-        end
-
-        -- If the +lsp flag exists and the language server is not installed yet
-        if lang_str:find("%+lsp") and (not utils.has_value(installed_servers, lsp_name)) then
-          -- Try to install the server only if there is a server available for
-          -- the language, oterwise raise a warning
-          if utils.has_value(available_servers, lsp_name) then
-            lspmanager.install(lsp_name)
-          else
-            if lsp_override ~= nil then
-              log.warn(
-                'The LSP override supplied in "'
-                  .. lang_str
-                  .. '" does not exist, please remove "('
-                  .. lsp_name
-                  .. ')"'
-              )
+      -- Save all lsps to ensure_installed
+      if should_install_lsp then
+        if lang_lsps ~= nil then
+          for _, lsp_name in ipairs(lang_lsps) do
+            local trimmed_lsp_name = vim.trim(lsp_name)
+            if utils.has_value(ensure_installed, trimmed_lsp_name) == false then
+              table.insert(ensure_installed, trimmed_lsp_name)
             end
           end
-        end
-      else
-        if lang_str:find("%+lsp") then
-          log.warn(
-            "The language " .. lang .. ' does not have a server, please remove the "+lsp" flag'
+        else
+          log.error(
+            'The language "' .. lang .. '" does not have an LSP, please remove the "+lsp" flag.'
           )
         end
+      end
+    end
+
+    -- Uninstall all (default) LSPs that shouldn't be installed
+    for _, lsp_name in ipairs(default_servers) do
+      if
+        utils.has_value(ensure_installed, lsp_name) == false
+        and utils.has_value(installed_servers, lsp_name)
+      then
+        lspmanager.uninstall(lsp_name)
+      end
+    end
+
+    -- Install all LSPs that should be installed
+    for _, lsp_name in ipairs(ensure_installed) do
+      if utils.has_value(installed_servers, lsp_name) == false then
+        lspmanager.install(lsp_name)
       end
     end
   end

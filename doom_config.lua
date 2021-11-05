@@ -19,6 +19,10 @@ local mapping_opts = {
 
 M.config = {
   doom = {
+    -- Pins plugins to a commit sha to prevent breaking changes
+    -- @default = true
+    freeze_dependencies = true,
+
     -- Autosave
     -- false : Disable autosave
     -- true  : Enable autosave
@@ -42,6 +46,12 @@ M.config = {
     -- true  : Use netrw
     -- @default = false
     use_netrw = false,
+
+    -- Enable folding
+    -- true : fold is enabled
+    -- false : fold is disabled
+    -- @default = true
+    foldenable = true,
 
     -- Autosave sessions
     -- false : Disable session autosave
