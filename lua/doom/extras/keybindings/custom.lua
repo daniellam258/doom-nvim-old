@@ -4,7 +4,6 @@ local mappings = require("doom.utils.mappings")
 local opts = { silent = true }
 local lsp_opts = vim.tbl_extend("force", opts, { expr = true })
 
-
 -- custom mapping
 mappings.map(
   "n",

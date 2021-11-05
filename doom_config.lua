@@ -231,7 +231,7 @@ M.config = {
       -- Completion and snippets keybindings
       completion = true,
       -- Dpryde custom
-      custom = true
+      custom = true,
     },
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
@@ -458,8 +458,8 @@ M.config = {
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
     mappings = {
-      {'n', 't', '<Plug>Sneak_s', mapping_opts},
-		  {'n', 'T', '<Plug>Sneak_S', mapping_opts},
+      { "n", "t", "<Plug>Sneak_s", mapping_opts },
+      { "n", "T", "<Plug>Sneak_S", mapping_opts },
     },
 
     -- Set custom commands
